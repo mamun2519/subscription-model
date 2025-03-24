@@ -9,6 +9,8 @@ export const RoleHierarchy: Record<string, string[]> = {
 } as const;
 
 export const RoleBasedPermission: Record<string, string[]> = {
+  super_admin: [],
+  admin: [Permission.PRODUCT_DELETE, Permission.USER_DELETE],
   manager: [
     Permission.PRODUCT_CREATE,
     Permission.PRODUCT_UPDATE,
