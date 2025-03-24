@@ -62,6 +62,14 @@ export class PermissionManager {
 
     RoleBasedPermission[role].forEach((permission) => result.add(permission));
 
+    const hierarchySet = this.cachedRoleHierarchy.get(role);
+
+    hierarchySet?.forEach((inheritedRole) => {
+      RoleBasedPermission[inheritedRole]?.forEach((permission) => {
+        result.add(permission);
+      });
+    });
+
     return result;
   }
 }
