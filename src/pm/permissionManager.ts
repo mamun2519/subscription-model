@@ -10,9 +10,13 @@ export class PermissionManager {
   private readonly cachedRolePermissions: Map<string, Set<string>> = new Map();
 
   constructor(private readonly context: PermissionContext) {
+    // Flatten the role hierarchy and cache it
     Object.keys(RoleHierarchy).forEach((role) => {
       this.cachedRoleHierarchy.set(role, this.computeRoleHierarchy(role));
     });
+
+    const roles = this.computeRoleHierarchy("manager");
+    console.log(roles);
   }
 
   private computeRoleHierarchy(role: string, visited: Set<string> = new Set()) {
