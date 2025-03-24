@@ -1,4 +1,4 @@
-import { RoleHierarchy } from "./config";
+import { RoleBasedPermission, RoleHierarchy } from "./config";
 
 interface PermissionContext {
   roles: string[];
@@ -14,9 +14,11 @@ export class PermissionManager {
     Object.keys(RoleHierarchy).forEach((role) => {
       this.cachedRoleHierarchy.set(role, this.computeRoleHierarchy(role));
     });
-
+    //     console.log(this.cachedRoleHierarchy);
     // Flatten the role permission and cache it
-    console.log(this.cachedRoleHierarchy);
+    Object.keys(RoleBasedPermission).forEach((role) => {
+      this.cachedRolePermissions.set(role, this.computeRolePermissions(role));
+    });
 
     //     const roles = this.computeRoleHierarchy("manager");
     //     console.log(roles);
@@ -42,6 +44,19 @@ export class PermissionManager {
 
       inheritedHierarchy.forEach((r) => result.add(r));
     });
+
+    return result;
+  }
+
+  private computeRolePermissions(
+    role: string,
+    visited: Set<string> = new Set()
+  ) {
+    const result = new Set<string>();
+
+    if (visited.has(role)) {
+      return result;
+    }
 
     return result;
   }
