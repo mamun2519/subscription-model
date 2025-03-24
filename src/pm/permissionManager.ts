@@ -60,6 +60,8 @@ export class PermissionManager {
 
     visited.add(role);
 
+    RoleBasedPermission[role].forEach((permission) => result.add(permission));
+
     return result;
   }
 }
