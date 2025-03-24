@@ -36,7 +36,7 @@ export class PermissionManager {
   }
 
   // check multiple permission is have
-  herPermissions(requiredPermissions: string[]) {
+  hesPermissions(requiredPermissions: string[]) {
     return requiredPermissions.every((permission) => {
       return this.hasPermission(permission);
     });
