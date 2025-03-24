@@ -15,8 +15,10 @@ export class PermissionManager {
       this.cachedRoleHierarchy.set(role, this.computeRoleHierarchy(role));
     });
 
-    const roles = this.computeRoleHierarchy("manager");
-    console.log(roles);
+    console.log(this.cachedRoleHierarchy);
+
+    //     const roles = this.computeRoleHierarchy("manager");
+    //     console.log(roles);
   }
 
   private computeRoleHierarchy(role: string, visited: Set<string> = new Set()) {
