@@ -26,6 +26,11 @@ export class PermissionManager {
       result.add(inheritedRole);
 
       // create closer
+      const inheritedHierarchy = this.computeRoleHierarchy(
+        inheritedRole,
+        visited
+      );
+      inheritedHierarchy.forEach((r) => result.add(r));
     });
 
     return result;
