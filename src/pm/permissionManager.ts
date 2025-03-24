@@ -15,6 +15,7 @@ export class PermissionManager {
       this.cachedRoleHierarchy.set(role, this.computeRoleHierarchy(role));
     });
 
+    // Flatten the role permission and cache it
     console.log(this.cachedRoleHierarchy);
 
     //     const roles = this.computeRoleHierarchy("manager");
@@ -23,11 +24,13 @@ export class PermissionManager {
 
   private computeRoleHierarchy(role: string, visited: Set<string> = new Set()) {
     const result = new Set<string>();
+
     if (visited.has(role)) {
       return result;
     }
     visited.add(role);
     const inheritedRoles = RoleHierarchy[role] || role;
+
     inheritedRoles.forEach((inheritedRole) => {
       result.add(inheritedRole);
 
@@ -36,6 +39,7 @@ export class PermissionManager {
         inheritedRole,
         visited
       );
+
       inheritedHierarchy.forEach((r) => result.add(r));
     });
 
