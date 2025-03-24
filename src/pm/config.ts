@@ -4,4 +4,8 @@ export const RoleHierarchy: Record<string, string[]> = {
   manager: ["premium_user"],
   premium_user: ["user"],
   user: [],
+} as const;
+
+export const RoleBasedPermission: Record<string, string[]> = {
+  user: ["product:read"],
 };
