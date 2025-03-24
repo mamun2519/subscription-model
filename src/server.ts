@@ -6,7 +6,7 @@ console.log("Hello world");
 const user = {
   id: 124,
   name: "Mohammad Mamun",
-  roles: ["user"],
+  roles: ["premium_user"],
   permissions: ["product:read"],
 };
 const pm = new PermissionManager({
@@ -14,4 +14,4 @@ const pm = new PermissionManager({
   permissions: user.permissions,
 });
 
-console.log(pm.hasPermission("product:delete"));
+console.log(pm.hasPermission("product:review"));
