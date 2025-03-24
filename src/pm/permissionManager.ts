@@ -14,16 +14,27 @@ export class PermissionManager {
     Object.keys(RoleHierarchy).forEach((role) => {
       this.cachedRoleHierarchy.set(role, this.computeRoleHierarchy(role));
     });
-    //     console.log(this.cachedRoleHierarchy);
+    console.log(this.cachedRoleHierarchy);
     // Flatten the role permission and cache it
     Object.keys(RoleBasedPermission).forEach((role) => {
       this.cachedRolePermissions.set(role, this.computeRolePermissions(role));
     });
 
-    //     const roles = this.computeRoleHierarchy("manager");
-    //     console.log(roles);
+    console.log(this.cachedRolePermissions);
+  }
+  /* ----------------Public Method ------------------------- */
+  hasPermission(requiredPermission: string) {
+    if (this.context.permissions.includes(requiredPermission)) {
+      return true;
+    }
+
+    return this.hasPermissionThroughRole(
+      this.context.roles,
+      requiredPermission
+    );
   }
 
+  /*----------------- Private Method------------------------- */
   private computeRoleHierarchy(role: string, visited: Set<string> = new Set()) {
     const result = new Set<string>();
 
@@ -36,7 +47,7 @@ export class PermissionManager {
     inheritedRoles.forEach((inheritedRole) => {
       result.add(inheritedRole);
 
-      // create closer
+      // create closer/recoursive
       const inheritedHierarchy = this.computeRoleHierarchy(
         inheritedRole,
         visited
@@ -71,5 +82,11 @@ export class PermissionManager {
     });
 
     return result;
+  }
+
+  private hasPermissionThroughRole(role: string[], permission: string) {
+    return role.some((role) =>
+      this.cachedRolePermissions.get(role)?.has(permission)
+    );
   }
 }
