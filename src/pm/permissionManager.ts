@@ -58,6 +58,8 @@ export class PermissionManager {
       return result;
     }
 
+    visited.add(role);
+
     return result;
   }
 }
