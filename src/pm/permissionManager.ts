@@ -23,6 +23,7 @@ export class PermissionManager {
     console.log(this.cachedRolePermissions);
   }
   /* ----------------Public Method ------------------------- */
+  // check single permission is have
   hasPermission(requiredPermission: string) {
     if (this.context.permissions.includes(requiredPermission)) {
       return true;
@@ -34,6 +35,12 @@ export class PermissionManager {
     );
   }
 
+  // check multiple permission is have
+  herPermissions(requiredPermissions: string[]) {
+    return requiredPermissions.every((permission) => {
+      return this.hasPermission(permission);
+    });
+  }
   /*----------------- Private Method------------------------- */
   private computeRoleHierarchy(role: string, visited: Set<string> = new Set()) {
     const result = new Set<string>();
