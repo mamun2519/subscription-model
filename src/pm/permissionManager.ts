@@ -21,5 +21,13 @@ export class PermissionManager {
       return result;
     }
     visited.add(role);
+    const inheritedRoles = RoleHierarchy[role] || role;
+    inheritedRoles.forEach((inheritedRole) => {
+      result.add(inheritedRole);
+
+      // create closer
+    });
+
+    return result;
   }
 }
