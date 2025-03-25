@@ -16,3 +16,4 @@ const pm = new PermissionManager({
 
 console.log(pm.hasPermission("product:review"));
 console.log(pm.hesPermissions(["product:read", "product:delete"]));
+console.log(pm.hasAnyPermission(["product:read", "product:write"]));
