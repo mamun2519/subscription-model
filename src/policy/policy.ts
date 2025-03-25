@@ -17,4 +17,6 @@ export abstract class Policy {
     public readonly name: string,
     public readonly description: string
   ) {}
+
+  abstract can(context: PolicyContext) {}
 }
