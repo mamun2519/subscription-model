@@ -22,4 +22,8 @@ export abstract class Policy {
   protected allowed(): PolicyResult {
     return { allowed: true, name: this.name };
   }
+
+  protected denied(reason?: string): PolicyResult {
+    return { allowed: false, name: this.name, reason };
+  }
 }
