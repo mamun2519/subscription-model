@@ -27,3 +27,5 @@ export abstract class Policy {
     return { allowed: false, name: this.name, reason };
   }
 }
+
+export class PolicyGoup {}
