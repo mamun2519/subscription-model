@@ -6,7 +6,7 @@ console.log("Hello world");
 const user = {
   id: 124,
   name: "Mohammad Mamun",
-  roles: ["admin"],
+  roles: ["user"],
   permissions: ["product:read"],
 };
 const pm = new PermissionManager({
