@@ -43,7 +43,7 @@ export class PermissionManager {
   }
 
   // check the permission any
-  hasAnyPermission() {}
+  hasAnyPermission(requiredPermissions: string[]) {}
 
   /*----------------- Private Method------------------------- */
   private computeRoleHierarchy(role: string, visited: Set<string> = new Set()) {
