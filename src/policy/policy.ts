@@ -33,4 +33,6 @@ export class PolicyGroup {
     private readonly name: string,
     private readonly policies: Policy[]
   ) {}
+
+  async can(context: PolicyContext): Promise<PolicyContext> {}
 }
