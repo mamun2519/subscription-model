@@ -56,7 +56,11 @@ export class PermissionManager {
     );
   }
 
-  hasRole(requiredRole: string) {}
+  hasRole(requiredRole: string) {
+    return this.context.roles.some((role) => {
+      const;
+    });
+  }
 
   /*----------------- Private Method------------------------- */
   private computeRoleHierarchy(role: string, visited: Set<string> = new Set()) {
