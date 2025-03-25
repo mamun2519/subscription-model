@@ -41,6 +41,10 @@ export class PermissionManager {
       return this.hasPermission(permission);
     });
   }
+
+  // check the permission any
+  hasAnyPermission() {}
+
   /*----------------- Private Method------------------------- */
   private computeRoleHierarchy(role: string, visited: Set<string> = new Set()) {
     const result = new Set<string>();
