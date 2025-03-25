@@ -1,4 +1,5 @@
 import { PermissionManager } from "./pm/permissionManager";
+import { FreeTrialPolicy } from "./policy/policies/FreeTrialPolicy.ts";
 import { RegistrationPolicy } from "./policy/policies/RegitrationPolicy";
 import { PolicyBuilder } from "./policy/policy";
 
@@ -23,7 +24,7 @@ console.log("Max role is", pm.getMaxRole());
 console.log(pm.hasRole("super_admin"));
 
 const accessFreeTrail = (userid: number, email: string, password: string) => {
-  const policyGroup = PolicyBuilder.create("FreeTrialPolicyGroup").addPolicy(
-    new RegistrationPolicy()
-  );
+  const policyGroup = PolicyBuilder.create("FreeTrialPolicyGroup")
+    .addPolicy(new RegistrationPolicy())
+    .addPolicy(new FreeTrialPolicy());
 };
