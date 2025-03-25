@@ -56,6 +56,8 @@ export class PermissionManager {
     );
   }
 
+  hasRole(requiredRole: string) {}
+
   /*----------------- Private Method------------------------- */
   private computeRoleHierarchy(role: string, visited: Set<string> = new Set()) {
     const result = new Set<string>();
