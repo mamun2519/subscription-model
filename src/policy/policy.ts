@@ -18,5 +18,5 @@ export abstract class Policy {
     public readonly description: string
   ) {}
 
-  abstract can(context: PolicyContext) {}
+  abstract can(context: PolicyContext): PolicyResult | Promise<PolicyResult> {}
 }
