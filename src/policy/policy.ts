@@ -46,7 +46,7 @@ export class PolicyGroup {
   async canAny(context: PolicyContext) {
     for (const policy of this.policies) {
       const result = await policy.can(context);
-      if (!result.allowed) {
+      if (result.allowed) {
         return result;
       }
     }
