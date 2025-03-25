@@ -42,8 +42,17 @@ export class PermissionManager {
     });
   }
 
+  // hasAnyPermission(requiredPermissions: string[]) {
+  // 	return requiredPermissions.some((permission) =>
+  // 		this.hasPermission(permission)
+  // 	);
+  // }
   // check the permission any
-  hasAnyPermission(requiredPermissions: string[]) {}
+  hasAnyPermission(requiredPermissions: string[]) {
+    return requiredPermissions.some((permission) =>
+      this.hasPermission(permission)
+    );
+  }
 
   /*----------------- Private Method------------------------- */
   private computeRoleHierarchy(role: string, visited: Set<string> = new Set()) {
