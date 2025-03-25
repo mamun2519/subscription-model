@@ -50,7 +50,7 @@ export class PolicyGroup {
         return result;
       }
     }
-    return { allowed: true, name: this.name, reason: "On Policy allowed" };
+    return { allowed: false, name: this.name, reason: "On Policy allowed" };
   }
 }
 
@@ -79,3 +79,14 @@ export class PolicyBuilder {
     return new PolicyGroup(this.name, this.policies);
   }
 }
+
+const policies = [
+  {
+    name: "RegistrationPolicy",
+    can: (context: PolicyContext) => {},
+  },
+  {
+    name: "FreeTrialPolicy",
+    can: (context: PolicyContext) => {},
+  },
+];
