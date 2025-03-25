@@ -6,7 +6,7 @@ console.log("Hello world");
 const user = {
   id: 124,
   name: "Mohammad Mamun",
-  roles: ["admin"],
+  roles: ["admin", "user", "super_admin", "premium_user", "boss"],
   permissions: ["product:read"],
 };
 const pm = new PermissionManager({
@@ -17,3 +17,4 @@ const pm = new PermissionManager({
 console.log(pm.hasPermission("product:review"));
 console.log(pm.hesPermissions(["product:read", "product:delete"]));
 console.log(pm.hasAnyPermission(["product:read", "product:write"]));
+console.log("Max role is", pm.getMaxRole());
