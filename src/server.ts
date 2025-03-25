@@ -19,3 +19,5 @@ console.log(pm.hesPermissions(["product:read", "product:delete"]));
 console.log(pm.hasAnyPermission(["product:read", "product:write"]));
 console.log("Max role is", pm.getMaxRole());
 console.log(pm.hasRole("super_admin"));
+
+const accessFreeTrail = (userid: number, email: string, password: string) => {};
