@@ -18,5 +18,8 @@ export abstract class Policy {
     public readonly description: string
   ) {}
 
-  abstract can(context: PolicyContext): PolicyResult | Promise<PolicyResult> {}
+  abstract can(context: PolicyContext): PolicyResult | Promise<PolicyResult>;
+  protected allowed(): PolicyResult {
+    return { allowed: true, name: this.name };
+  }
 }
