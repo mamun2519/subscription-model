@@ -34,9 +34,13 @@ export class PolicyGroup {
     private readonly policies: Policy[]
   ) {}
 
-  async can(context: PolicyContext): Promise<PolicyContext> {
+  async can(context: PolicyContext): Promise<PolicyResult> {
     for (const policy of this.policies) {
       const result = await policy.can(context);
+      if (!result.allowed) {
+        return result;
+      }
     }
+    return { allowed: true, name: this.name };
   }
 }
