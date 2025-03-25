@@ -59,6 +59,7 @@ export class PermissionManager {
   hasRole(requiredRole: string) {
     return this.context.roles.some((role) => {
       const hierarchySet = this.cachedRoleHierarchy.get(role);
+      return hierarchySet?.has(requiredRole) || role === requiredRole;
     });
   }
 
