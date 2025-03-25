@@ -12,4 +12,9 @@ export interface PolicyResult {
   reason?: string;
 }
 
-export abstract class Policy {}
+export abstract class Policy {
+  constructor(
+    public readonly name: string,
+    public readonly description: string
+  ) {}
+}
