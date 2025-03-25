@@ -74,4 +74,8 @@ export class PolicyBuilder {
     this.policies.push(...policies);
     return this;
   }
+
+  build() {
+    return new PolicyGroup(this.name, this.policies);
+  }
 }
