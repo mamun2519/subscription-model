@@ -28,4 +28,9 @@ export abstract class Policy {
   }
 }
 
-export class PolicyGoup {}
+export class PolicyGroup {
+  constructor(
+    private readonly name: string,
+    private readonly policies: Policy[]
+  ) {}
+}
