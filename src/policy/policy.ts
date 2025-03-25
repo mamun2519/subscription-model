@@ -53,3 +53,25 @@ export class PolicyGroup {
     return { allowed: true, name: this.name, reason: "On Policy allowed" };
   }
 }
+
+export class PolicyBuilder {
+  private policies: Policy[] = [];
+  private name: string;
+
+  private constructor(name: string) {
+    this.name = name;
+  }
+
+  static create(name: string) {
+    return new PolicyBuilder(name);
+  }
+
+  addPolicy(policy: Policy) {
+    this.policies.push(policy);
+    return this;
+  }
+  addPolicies(policies: Policy[]) {
+    this.policies.push(...policies);
+    return this;
+  }
+}
