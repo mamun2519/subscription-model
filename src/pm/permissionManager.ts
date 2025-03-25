@@ -42,11 +42,13 @@ export class PermissionManager {
     });
   }
 
-  // hasAnyPermission(requiredPermissions: string[]) {
-  // 	return requiredPermissions.some((permission) =>
-  // 		this.hasPermission(permission)
-  // 	);
+  // hasRole(requiredRole: string) {
+  // 	return this.context.roles.some((role) => {
+  // 		const hierarchySet = this.cachedRoleHierarchy.get(role);
+  // 		return hierarchySet?.has(requiredRole) || role === requiredRole;
+  // 	});
   // }
+
   // check the permission any
   hasAnyPermission(requiredPermissions: string[]) {
     return requiredPermissions.some((permission) =>
