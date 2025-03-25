@@ -52,4 +52,4 @@ const accessFreeTrial = async (
   };
 };
 
-accessFreeTrial(10, "hmnayem@stacklearner.com", "password");
+accessFreeTrial(10, "test@spam.com", "password");
