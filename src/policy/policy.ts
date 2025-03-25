@@ -11,3 +11,5 @@ export interface PolicyResult {
   allowed: boolean;
   reason?: string;
 }
+
+export abstract class Policy {}
