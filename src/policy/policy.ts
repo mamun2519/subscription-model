@@ -43,4 +43,13 @@ export class PolicyGroup {
     }
     return { allowed: true, name: this.name };
   }
+  async canAny(context: PolicyContext) {
+    for (const policy of this.policies) {
+      const result = await policy.can(context);
+      if (!result.allowed) {
+        return result;
+      }
+    }
+    return { allowed: true, name: this.name };
+  }
 }
