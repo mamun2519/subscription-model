@@ -64,7 +64,7 @@ export class PermissionManager {
   // 	}, this.context.roles[0]);
   // }
   getMaxRole() {
-    return this.context.roles.includes((maxRole, currentRole) => {
+    return this.context.roles.reduce((maxRole, currentRole) => {
       return this.cachedRoleHierarchy.get(maxRole)?.has(currentRole)
         ? maxRole
         : currentRole;
