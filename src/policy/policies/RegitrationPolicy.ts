@@ -7,7 +7,12 @@ export class RegistrationPolicy extends Policy {
 
   async can(context: PolicyContext): Promise<PolicyResult> {
     const email = context.email as string;
- 
+    const blockedDomains = ["spam.com", "malicious.com"];
+    const blockedEmails = [
+      "test@spam.com",
+      "test@malicious.com",
+      "test@test.com",
+    ];
 
   
 }
