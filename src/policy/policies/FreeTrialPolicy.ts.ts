@@ -4,8 +4,4 @@ export class FreeTrialPolicy extends Policy {
   constructor() {
     super("FreeTrialPolicy", "Check if the user can access the free trial");
   }
-
-  async can(context: PolicyContext): Promise<PolicyResult> {
-    const { userId } = context;
-  }
 }
