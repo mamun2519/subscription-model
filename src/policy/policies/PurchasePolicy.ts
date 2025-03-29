@@ -8,5 +8,9 @@ export class PurchasePolicy extends Policy {
   async can(context: PolicyContext): Promise<PolicyResult> {
     const { userId } = context;
     const blockedUsers = [123, 456, 789];
+
+    if (blockedUsers.includes(userId as number)) {
+      return this.denied("User is not allowed to purchase a product");
+    }
   }
 }
