@@ -11,5 +11,7 @@ export class FreeTrialPolicy extends Policy {
     if (userId === 123) {
       return this.denied("User is not allowed to access the free trial");
     }
+
+    return this.allowed();
   }
 }
