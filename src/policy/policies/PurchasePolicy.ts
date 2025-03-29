@@ -5,5 +5,8 @@ export class PurchasePolicy extends Policy {
     super("PurchasePolicy", "Check if the user can purchase a product");
   }
 
-  async can(context: PolicyContext): Promise<PolicyResult> {}
+  async can(context: PolicyContext): Promise<PolicyResult> {
+    const { userId } = context;
+    const blockedUsers = [123, 456, 789];
+  }
 }
