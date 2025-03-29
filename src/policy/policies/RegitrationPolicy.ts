@@ -21,5 +21,7 @@ export class RegistrationPolicy extends Policy {
     if (blockedEmails.includes(email)) {
       return this.denied("Email is blocked");
     }
+
+    return this.allowed();
   }
 }
