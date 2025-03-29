@@ -17,5 +17,9 @@ export class RegistrationPolicy extends Policy {
     if (blockedDomains.some((domain) => email.endsWith(domain))) {
       return this.denied("Email domain is blocked");
     }
+
+    if (blockedEmails.includes(email)) {
+      return this.denied("Email is blocked");
+    }
   }
 }
