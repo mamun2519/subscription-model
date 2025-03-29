@@ -7,5 +7,9 @@ export class FreeTrialPolicy extends Policy {
 
   async can(context: PolicyContext): Promise<PolicyResult> {
     const { userId } = context;
+
+    if (userId === 123) {
+      return this.denied("User is not allowed to access the free trial");
+    }
   }
 }
