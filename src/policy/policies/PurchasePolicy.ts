@@ -12,7 +12,5 @@ export class PurchasePolicy extends Policy {
     if (blockedUsers.includes(userId as number)) {
       return this.denied("User is not allowed to purchase a product");
     }
-
-    return this.allowed();
   }
 }
