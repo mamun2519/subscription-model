@@ -7,6 +7,5 @@ export class PurchasePolicy extends Policy {
 
   async can(context: PolicyContext): Promise<PolicyResult> {
     const { userId } = context;
-    const blockedUsers = [123, 456, 789];
   }
 }
