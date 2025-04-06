@@ -96,29 +96,6 @@ export class PermissionManager {
     return result;
   }
 
-  private computeRolePermissions(
-    role: string,
-    visited: Set<string> = new Set()
-  ) {
-    const result = new Set<string>();
 
-    if (visited.has(role)) {
-      return result;
-    }
-
-    visited.add(role);
-
-    RoleBasedPermission[role].forEach((permission) => result.add(permission));
-
-    const hierarchySet = this.cachedRoleHierarchy.get(role);
-
-    hierarchySet?.forEach((inheritedRole) => {
-      RoleBasedPermission[inheritedRole]?.forEach((permission) => {
-        result.add(permission);
-      });
-    });
-
-    return result;
-  }
 
 
