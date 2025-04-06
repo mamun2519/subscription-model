@@ -121,9 +121,4 @@ export class PermissionManager {
     return result;
   }
 
-  private hasPermissionThroughRole(role: string[], permission: string) {
-    return role.some((role) =>
-      this.cachedRolePermissions.get(role)?.has(permission)
-    );
-  }
-}
+
