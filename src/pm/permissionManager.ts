@@ -81,13 +81,7 @@ export class PermissionManager {
     visited.add(role);
     const inheritedRoles = RoleHierarchy[role] || role;
 
-    inheritedRoles.forEach((inheritedRole) => {
-      result.add(inheritedRole);
-
-      // create closer/recoursive
  
-
-  }
 
 
 
