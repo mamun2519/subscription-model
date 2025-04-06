@@ -16,7 +16,29 @@ export class PermissionManager {
     });
     console.log(this.cachedRoleHierarchy);
     // Flatten the role permission and cache it
- 
+    Object.keys(RoleBasedPermission).forEach((role) => {
+      this.cachedRolePermissions.set(role, this.computeRolePermissions(role));
+    });
+
+    console.log(this.cachedRolePermissions);
+  }
+  /* ----------------Public Method ------------------------- */
+  // check single permission is have
+  hasPermission(requiredPermission: string) {
+    if (this.context.permissions.includes(requiredPermission)) {
+      return true;
+    }
+
+    return this.hasPermissionThroughRole(
+      this.context.roles,
+      requiredPermission
+    );
+  }
+
+  // check multiple permission is have
+
+
+
 
 
 
