@@ -90,10 +90,7 @@ export class PermissionManager {
         visited
       );
 
-      inheritedHierarchy.forEach((r) => result.add(r));
-    });
 
-    return result;
   }
 
 
