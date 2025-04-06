@@ -16,17 +16,7 @@ export class PermissionManager {
     });
     console.log(this.cachedRoleHierarchy);
     // Flatten the role permission and cache it
-    Object.keys(RoleBasedPermission).forEach((role) => {
-      this.cachedRolePermissions.set(role, this.computeRolePermissions(role));
-    });
-
-    console.log(this.cachedRolePermissions);
-  }
-
-  // check multiple permission is have
-
-
-
+ 
 
 
 
