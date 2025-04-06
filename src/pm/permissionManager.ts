@@ -62,6 +62,14 @@ export class PermissionManager {
   // 			? maxRole
   // 			: currentRole;
   // 	}, this.context.roles[0]);
+  // }
+  getMaxRole() {
+    return this.context.roles.reduce((maxRole, currentRole) => {
+      return this.cachedRoleHierarchy.get(maxRole)?.has(currentRole)
+        ? maxRole
+        : currentRole;
+    }, this.context.roles[0]);
+  }
 
 
 
