@@ -49,6 +49,20 @@ export class PermissionManager {
     );
   }
 
+  hasRole(requiredRole: string) {
+    return this.context.roles.some((role) => {
+      const hierarchySet = this.cachedRoleHierarchy.get(role);
+      return hierarchySet?.has(requiredRole) || role === requiredRole;
+    });
+  }
+
+  // getMaxRole() {
+  // 	return this.context.roles.reduce((maxRole, currentRole) => {
+  // 		return this.cachedRoleHierarchy.get(maxRole)?.has(currentRole)
+  // 			? maxRole
+  // 			: currentRole;
+  // 	}, this.context.roles[0]);
+
 
 
 
