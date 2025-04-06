@@ -42,12 +42,7 @@ export class PermissionManager {
     });
   }
 
-  // check the permission any
-  hasAnyPermission(requiredPermissions: string[]) {
-    return requiredPermissions.some((permission) =>
-      this.hasPermission(permission)
-    );
-  }
+
 
 
 
