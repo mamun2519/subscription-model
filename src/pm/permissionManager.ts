@@ -22,18 +22,6 @@ export class PermissionManager {
 
     console.log(this.cachedRolePermissions);
   }
-  /* ----------------Public Method ------------------------- */
-  // check single permission is have
-  hasPermission(requiredPermission: string) {
-    if (this.context.permissions.includes(requiredPermission)) {
-      return true;
-    }
-
-    return this.hasPermissionThroughRole(
-      this.context.roles,
-      requiredPermission
-    );
-  }
 
   // check multiple permission is have
 
