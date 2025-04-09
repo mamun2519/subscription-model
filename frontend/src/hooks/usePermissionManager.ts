@@ -15,6 +15,8 @@ const flattenRoles = (roles: Role[]) => {
 export const usePermissionManager = () => {
   const auth = useKindeAuth();
 
+  // console.log("Roles", auth.getClaim("roles"));
+  // console.log("Permissions", auth.getClaim("permissions"));
   const pm = useMemo(() => {
     if (!auth.isAuthenticated) return null;
 
