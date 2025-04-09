@@ -19,11 +19,8 @@ export const usePermissionManager = () => {
     if (!auth.isAuthenticated) return null;
 
     const claimedRoles = (auth.getClaim("roles")?.value as Role[]) || [];
-    console.log("claimedRoles", claimedRoles);
     const roles = flattenRoles(claimedRoles);
-    console.log("roles", roles);
     const permissions = (auth.getClaim("permissions")?.value as string[]) || [];
-
     return new PermissionManager({
       roles,
       permissions,
