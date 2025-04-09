@@ -22,6 +22,8 @@ export const usePermissionManager = () => {
 
     const claimedRoles = (auth.getClaim("roles")?.value as Role[]) || [];
     const roles = flattenRoles(claimedRoles);
+
+    console.log("roles", roles);
     const permissions = (auth.getClaim("permissions")?.value as string[]) || [];
     return new PermissionManager({
       roles,
