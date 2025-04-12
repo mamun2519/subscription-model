@@ -25,6 +25,7 @@ export const usePermissionManager = () => {
 
     console.log("roles", roles);
     const permissions = (auth.getClaim("permissions")?.value as string[]) || [];
+    console.log("permisson", permissions);
     return new PermissionManager({
       roles,
       permissions,
