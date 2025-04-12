@@ -39,6 +39,7 @@ export const authenticate = async (
     return;
   }
 
+  //    if not verify token
   res.status(401).json({
     message: "Unauthorized",
   });
