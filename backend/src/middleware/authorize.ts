@@ -8,6 +8,7 @@ type AuthorizeOptions = {
 //* middleware factory
 export const authorize = ({ permissions, role }: AuthorizeOptions) => {
   return (req: Request, res: Response, next: NextFunction) => {
+    //  if not pm retune 401
     if (!req.pm) {
       res.status(401).json({
         message: "Unauthorized",
