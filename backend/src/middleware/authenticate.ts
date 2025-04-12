@@ -18,6 +18,7 @@ export const authenticate = async (
     return;
   }
 
+  //* verify token
   const validationResult: jwtValidationResponse = await validateToken({
     token,
     domain: process.env.KINDE_DOMAIN,
