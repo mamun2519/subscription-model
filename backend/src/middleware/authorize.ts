@@ -30,6 +30,7 @@ export const authorize = ({ permissions, role }: AuthorizeOptions) => {
       return req.pm?.hasPermission(permissions) ?? false;
     };
 
+    //* check permission and role
     const hasAccess = checkRole() && checkPermissions();
 
     if (hasAccess) {
