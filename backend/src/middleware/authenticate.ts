@@ -27,11 +27,13 @@ export const authenticate = async (
   if (validationResult.valid) {
     const user = jwtDecode<User>(token);
 
+    //* check the permission
     const pm = new PermissionManager({
       roles: user.roles.map((role) => role.key),
       permissions: user.permissions,
     });
 
+    //* assign the user in the req
     req.user = user;
     req.pm = pm;
 
