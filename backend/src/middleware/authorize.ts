@@ -21,6 +21,7 @@ export const authorize = ({ permissions, role }: AuthorizeOptions) => {
       return req.pm?.hasRole(role) ?? false;
     };
 
+    //* check the user permmission
     const checkPermissions = () => {
       if (!permissions) return true;
       if (Array.isArray(permissions)) {
