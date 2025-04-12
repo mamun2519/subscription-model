@@ -35,6 +35,7 @@ export const authenticate = async (
 
     //* assign the user in the req
     req.user = user;
+    //* assign the pm in the req
     req.pm = pm;
 
     next();
