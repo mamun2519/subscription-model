@@ -1,4 +1,4 @@
-import { NextFunction } from "express";
+import { NextFunction, Request, Response } from "express";
 
 export const authenticate = (
   req: Request,
@@ -6,4 +6,5 @@ export const authenticate = (
   next: NextFunction
 ) => {
   //* receive token
+  const token = req.
 };
