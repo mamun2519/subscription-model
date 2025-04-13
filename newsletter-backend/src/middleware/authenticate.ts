@@ -33,4 +33,7 @@ export const authenticate = (
   });
 
   //   assing the user in the req
+  req.user = isValidUser;
+  req.pm = pm;
+  next();
 };
