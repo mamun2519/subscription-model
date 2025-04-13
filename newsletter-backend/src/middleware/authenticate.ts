@@ -31,4 +31,6 @@ export const authenticate = (
     roles: [isValidUser],
     permissions: isValidUser.permissions,
   });
+
+  //   assing the user in the req
 };
