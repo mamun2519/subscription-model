@@ -5,7 +5,7 @@ type AuthorizeOptions = {
   role?: string;
 };
 
-export const authorize = ({ permission, role }: AuthorizeOptions) => {
+export const authorize = ({ permissions, role }: AuthorizeOptions) => {
   return (req: Request, res: Response, next: NextFunction) => {
     if (!req.pm) {
       res.status(401).json({
@@ -17,6 +17,14 @@ export const authorize = ({ permission, role }: AuthorizeOptions) => {
     const checkRole = () => {
       if (!role) return true;
       return req.pm?.hasRole(role) ?? false;
+    };
+
+    const checkPermissions = () => {
+      if (!permissions) return true;
+      if (Array.isArray(permissions)) {
+        return req.pm?.hasPermissions(permissions) ?? false;
+      }
+      return req.pm?.hasAnyPermission(permissions);
     };
   };
 };
