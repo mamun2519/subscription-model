@@ -6,5 +6,5 @@ export const authenticate = (
   next: NextFunction
 ) => {
   //* receive token
-  const token = req.
+  const token = req.headers.authorization?.split(" ")[1];
 };
