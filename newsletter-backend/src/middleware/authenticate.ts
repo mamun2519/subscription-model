@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 
+import jwt from "jsonwebtoken";
 const SCREET_TOKEN = "Hero";
 export const authenticate = (
   req: Request,
@@ -16,5 +17,5 @@ export const authenticate = (
   }
 
   //* verify token using jwt
-  const isValidUser = ;
+  const isValidUser = jwt;
 };
