@@ -21,7 +21,7 @@ export const authenticate = (
   const isValidUser = jwt.verify(token, SECRET_TOKEN);
 
   if (!isValidUser) {
-    res.status(401).json({
+    res.status(403).json({
       message: "Unauthorized",
     });
   }
