@@ -28,5 +28,10 @@ export const authorize = ({ permissions, role }: AuthorizeOptions) => {
     };
 
     const hasAccess = checkRole() && checkPermissions();
+    if (!hasAccess) {
+      res.status(403).json({
+        message: "Forbidden",
+      });
+    }
   };
 };
