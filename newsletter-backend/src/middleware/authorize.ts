@@ -6,5 +6,12 @@ type AuthorizeOptions = {
 };
 
 export const authorize = ({ permission, role }) => {
-  return (req: Request, res: Response, next: NextFunction) => {};
+  return (req: Request, res: Response, next: NextFunction) => {
+    if (!req.pm) {
+      res.status(401).json({
+        message: "Unauthorized",
+      });
+      return;
+    }
+  };
 };
