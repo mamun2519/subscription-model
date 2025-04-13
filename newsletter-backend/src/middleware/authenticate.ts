@@ -24,4 +24,6 @@ export const authenticate = (
       message: "Unauthorized",
     });
   }
+
+  //* check the permission
 };
