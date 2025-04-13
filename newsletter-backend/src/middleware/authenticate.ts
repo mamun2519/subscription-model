@@ -16,4 +16,5 @@ export const authenticate = (
   }
 
   //* verify token using jwt
+  const isValidUser = ;
 };
