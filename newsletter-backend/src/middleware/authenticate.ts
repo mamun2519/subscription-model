@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 
+const SCREET_TOKEN = "Hero";
 export const authenticate = (
   req: Request,
   res: Response,
@@ -13,4 +14,6 @@ export const authenticate = (
     });
     return;
   }
+
+  //* verify token using jwt
 };
